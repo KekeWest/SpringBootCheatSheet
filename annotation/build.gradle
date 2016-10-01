@@ -1,0 +1,12 @@
+jar {
+	baseName = 'annotation'
+	version = '0.0.1-SNAPSHOT'
+}
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-aop')
+	compile('org.projectlombok:lombok:1.16.6')
+	compile('com.google.guava:guava:latest.release')
+	compile('org.apache.commons:commons-lang3:latest.release')
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
