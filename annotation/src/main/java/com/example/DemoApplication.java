@@ -9,10 +9,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 
 import com.example.component.DemoComponent;
 
-import lombok.extern.slf4j.Slf4j;
-
 @SpringBootApplication
-@Slf4j
 public class DemoApplication {
 
     @Autowired
