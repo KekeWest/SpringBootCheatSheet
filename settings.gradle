@@ -1,1 +1,1 @@
-include "annotation", "error-handling", "test", "batch"
+include "annotation", "error-handling", "test", "batch", "session"

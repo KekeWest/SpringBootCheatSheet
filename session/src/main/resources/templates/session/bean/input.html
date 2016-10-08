@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Session Attributes</title>
+</head>
+<body>
+	<div>Input Form</div>
+	<form action="post" method="post" th:object="${form}">
+		<input type="text" th:field="*{user}" placeholder="user name" />
+		<input type="text" th:field="*{phoneNumber}" placeholder="phone number"/>
+		<input type="submit" value="confirm" />
+	</form>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Session Attributes</title>
+</head>
+<body>
+	<div>Confirm</div>
+	<div th:text="${@sessionBean.user}"></div>
+	<div th:text="${@sessionBean.phoneNumber}"></div>
+	<div th:text="${@sessionBean.address}"></div>
+	<a href="complete">complete</a>
+</body>
+</html>
