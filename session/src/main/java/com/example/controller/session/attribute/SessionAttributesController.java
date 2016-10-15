@@ -58,7 +58,7 @@ public class SessionAttributesController {
     @Data
     @AllArgsConstructor
     @NoArgsConstructor
-    private static class Form implements Serializable {
+    public static class Form implements Serializable {
 
         private String user;
 
