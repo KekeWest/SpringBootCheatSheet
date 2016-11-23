@@ -1,4 +1,4 @@
-package com.example.controller;
+package com.example;
 
 import static org.mockito.BDDMockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
@@ -13,6 +13,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
+import com.example.controller.DemoController;
 import com.example.domain.dto.DemoDto;
 import com.example.service.DemoService;
 

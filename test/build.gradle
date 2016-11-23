@@ -6,7 +6,7 @@ war {
 }
 
 configurations {
-    providedRuntime
+	providedRuntime
 }
 
 dependencies {
@@ -18,5 +18,10 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
 	compile('org.springframework.boot:spring-boot-starter-web')
 	providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
-	testCompile('org.springframework.boot:spring-boot-starter-test')
+
+	testCompile(name:'jmockit-1.29')
+	testCompile(name:'junit-4.12')
+	testCompile('org.springframework.boot:spring-boot-starter-test') {
+		exclude module: 'junit'
+	}
 }
