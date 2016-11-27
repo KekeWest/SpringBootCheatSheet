@@ -1,0 +1,18 @@
+apply plugin: 'war'
+
+war {
+	baseName = 'thymeleaf-custom'
+	version = '0.0.1-SNAPSHOT'
+}
+
+configurations {
+    providedRuntime
+}
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-devtools')
+	compile('org.projectlombok:lombok')
+	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+	compile('org.springframework.boot:spring-boot-starter-web')
+	providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
+}
