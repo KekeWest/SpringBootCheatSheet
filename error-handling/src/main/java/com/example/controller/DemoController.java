@@ -1,42 +1,43 @@
 package com.example.controller;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-import com.example.domain.dto.DemoDto;
 import com.example.exception.ApplicationException;
-import com.example.exception.DemoException;
-import com.example.service.DemoService;
+import com.example.exception.InternalServerErrorException;
+import com.example.exception.NotFoundException;
 
-@RestController
+@Controller
 @RequestMapping("/demo")
-public class DemoController extends BaseController {
+public class DemoController {
 
-    @Autowired
-    private DemoService demoService;
-
-    @GetMapping(path = "/{id}")
-    public DemoDto demo(@PathVariable int id) {
-        if (id == 0) {
-            throw new DemoException();
+    @GetMapping(path = "/{status}")
+    public String demo(@PathVariable String status) {
+        if ("500".equals(status)) {
+            throw new InternalServerErrorException();
         }
-        if (id == 100) {
+        if ("404".equals(status)) {
+            throw new NotFoundException();
+        }
+        if ("null".equals(status)) {
             throw new NullPointerException();
         }
+        if ("appex".equals(status)) {
+            throw new ApplicationException();
+        }
 
-        return demoService.getDemoDto1();
+        return "demo";
     }
 
     @ExceptionHandler(ApplicationException.class)
-    public String error(HttpServletResponse response, Exception ex) {
-        setHttpStatus(response, ex);
-        return "demo error";
+    public String controllerError(HttpServletRequest request, HttpServletResponse responce) {
+        return "app_error";
     }
 
 }
